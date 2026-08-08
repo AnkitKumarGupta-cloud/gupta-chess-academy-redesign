@@ -43,10 +43,23 @@ body { color: var(--ink) !important; }
 
 /* ── HEADER ───────────────────────────────────── */
 #header {
-  background: rgba(244,239,227,0.92) !important;
-  border-bottom: 1px solid rgba(182,134,62,0.28) !important;
+  background:
+    radial-gradient(120% 200% at 12% 0%, rgba(182,134,62,0.09) 0%, transparent 55%),
+    linear-gradient(180deg, var(--paper) 0%, rgba(244,239,227,0.94) 100%) !important;
+  border-bottom: none !important;
+  box-shadow: 0 1px 0 rgba(182,134,62,0.32), 0 6px 24px rgba(27,25,18,0.08) !important;
+  position: fixed !important;
 }
-#header.scrolled { box-shadow: 0 4px 28px rgba(27,25,18,0.14) !important; }
+#header::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -1.5px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+#header.scrolled { box-shadow: 0 1px 0 rgba(182,134,62,0.4), 0 10px 32px rgba(27,25,18,0.16) !important; }
 .logo-text .brand { color: var(--forest) !important; }
 .logo-text .sub { color: var(--ink-soft) !important; }
 #main-nav a { color: var(--ink) !important; }
