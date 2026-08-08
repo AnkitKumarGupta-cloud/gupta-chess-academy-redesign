@@ -1,0 +1,88 @@
+/* ══════════════════════════════════════════════════════════════
+   GUPTA CHESS ACADEMY — 2026 REDESIGN
+   Design tokens: cream field, deep forest panels, brass accent.
+   This file loads last on every page and re-skins the whole site
+   from one source of truth, so the look stays constant site-wide.
+══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* -- brand palette -- */
+  --cream:      #f4efe3;   /* page field */
+  --cream2:     #ece1c8;   /* secondary field / hairlines on light */
+  --paper:      #fbf8f1;   /* card surface, lighter than field */
+  --ink:        #1b1912;   /* primary text on cream */
+  --ink-soft:   rgba(27,25,18,0.62);
+  --forest:     #16261d;   /* deep panel bg (was --dark) */
+  --forest2:    #1e3629;   /* secondary panel bg (was --dark2) */
+  --forest3:    #274634;   /* elevated panel (was --dark3) */
+  --gold:       #b6863e;   /* brass accent (was --gold) */
+  --gold-light: #d7ad6c;
+  --gold-dark:  #8c6428;
+  --white:      #ffffff;
+  --gray:       #8a7f72;
+
+  /* aliases so existing component CSS (built for a dark theme)
+     repaints correctly without touching every rule */
+  --dark:  var(--forest);
+  --dark2: var(--forest2);
+  --dark3: var(--forest3);
+
+  --radius: 6px;
+  --tr: 0.28s cubic-bezier(0.4,0,0.2,1);
+  --header-h: 72px;
+
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+html, body { background: var(--cream) !important; }
+body { color: var(--ink) !important; }
+
+::-webkit-scrollbar-track { background: var(--cream2) !important; }
+::-webkit-scrollbar-thumb { background: var(--gold) !important; }
+
+/* ── HEADER ───────────────────────────────────── */
+#header {
+  background: rgba(244,239,227,0.92) !important;
+  border-bottom: 1px solid rgba(182,134,62,0.28) !important;
+}
+#header.scrolled { box-shadow: 0 4px 28px rgba(27,25,18,0.14) !important; }
+.logo-text .brand { color: var(--forest) !important; }
+.logo-text .sub { color: var(--ink-soft) !important; }
+#main-nav a { color: var(--ink) !important; }
+#main-nav a:hover, #main-nav a.active { color: var(--gold-dark) !important; }
+.nav-cta { background: var(--forest) !important; color: var(--cream) !important; }
+.nav-cta:hover { background: var(--forest2) !important; }
+#hamburger span { background: var(--forest) !important; }
+#mobile-nav {
+  background: rgba(244,239,227,0.99) !important;
+  border-bottom: 1px solid rgba(182,134,62,0.22) !important;
+}
+#mobile-nav a { color: var(--ink) !important; border-bottom-color: rgba(182,134,62,0.14) !important; }
+#mobile-nav a:hover { color: var(--gold-dark) !important; background: rgba(182,134,62,0.08) !important; }
+
+/* ── TYPE / SECTION HEADERS (used on every page) ── */
+.section-title { color: var(--forest) !important; }
+.section-sub { color: var(--ink-soft) !important; }
+.section-tag { color: var(--gold-dark) !important; }
+.section-tag::before { background: var(--gold) !important; }
+.divider { background: linear-gradient(90deg,var(--gold),transparent) !important; }
+
+/* ── BUTTONS ──────────────────────────────────── */
+.btn-primary { background: var(--forest) !important; color: var(--cream) !important; }
+.btn-primary:hover { background: var(--forest2) !important; box-shadow: 0 8px 24px rgba(27,25,18,0.22) !important; }
+.btn-outline { color: var(--forest) !important; border-color: rgba(27,25,18,0.28) !important; }
+.btn-outline:hover { border-color: var(--gold-dark) !important; color: var(--gold-dark) !important; }
+
+/* ── FOOTER stays dark-forest by design (anchors the palette) ── */
+footer { background: var(--forest) !important; }
+
+/* generic light-panel card used across redesigned sections */
+.panel-light {
+  background: var(--paper);
+  border: 1px solid rgba(27,25,18,0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

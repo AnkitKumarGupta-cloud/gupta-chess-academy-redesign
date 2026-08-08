@@ -1,0 +1,8 @@
+# robots.txt for Gupta Chess Academy
+# https://guptachessacademy.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://guptachessacademy.com/sitemap.xml
